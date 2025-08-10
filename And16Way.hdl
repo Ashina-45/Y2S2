@@ -19,13 +19,13 @@ CHIP And16Way {
     And(a=in[12], b=in[13], out=t1213);
     And(a=in[14], b=in[15], out=t1415);
 
-    And(a=t01, b=t23, out=t0123);
-    And(a=t45, b=t67, out=t4567);
-    And(a=t89, b=t1011, out=t891011);
-    And(a=t1213, b=t1415, out=t12131415);
+    And(a=t01,   b=t23,    out=t0123);
+    And(a=t45,   b=t67,    out=t4567);
+    And(a=t89,   b=t1011,  out=t891011);
+    And(a=t1213, b=t1415,  out=t12131415);
 
-    And(a=t0123, b=t4567, out=t0_7);
-    And(a=t891011, b=t12131415, out=t8_15);
+    And(a=t0123,    b=t4567,     out=t0_7);
+    And(a=t891011,  b=t12131415, out=t8_15);
 
     And(a=t0_7, b=t8_15, out=out);
 }
