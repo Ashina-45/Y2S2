@@ -10,5 +10,22 @@ CHIP And16Way {
     OUT out;
 
     PARTS:
-    // Put your code here:
+    And(a=in[0],  b=in[1],  out=x01);
+    And(a=in[2],  b=in[3],  out=x23);
+    And(a=in[4],  b=in[5],  out=x45);
+    And(a=in[6],  b=in[7],  out=x67);
+    And(a=in[8],  b=in[9],  out=x89);
+    And(a=in[10], b=in[11], out=x1011);
+    And(a=in[12], b=in[13], out=x1213);
+    And(a=in[14], b=in[15], out=x1415);
+
+    And(a=x01,   b=x23,    out=x0123);
+    And(a=x45,   b=x67,    out=x4567);
+    And(a=x89,   b=x1011,  out=x891011);
+    And(a=x1213, b=x1415,  out=x12131415);
+
+    And(a=x0123,    b=x4567,     out=x0_7);
+    And(a=x891011,  b=x12131415, out=x8_15);
+
+    And(a=x0_7, b=x8_15, out=out);
 }
