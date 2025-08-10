@@ -29,5 +29,3 @@ CHIP And16Way {
 
     And(a=t0_7, b=t8_15, out=out);
 }
-
-
