@@ -10,22 +10,15 @@ CHIP And16Way {
     OUT out;
 
     PARTS:
-    And(a=in[0],  b=in[1],  out=x01);
-    And(a=in[2],  b=in[3],  out=x23);
-    And(a=in[4],  b=in[5],  out=x45);
-    And(a=in[6],  b=in[7],  out=x67);
-    And(a=in[8],  b=in[9],  out=x89);
-    And(a=in[10], b=in[11], out=x1011);
-    And(a=in[12], b=in[13], out=x1213);
-    And(a=in[14], b=in[15], out=x1415);
+    Not16(in=in, out=ni);
 
-    And(a=x01,   b=x23,    out=x0123);
-    And(a=x45,   b=x67,    out=x4567);
-    And(a=x89,   b=x1011,  out=x891011);
-    And(a=x1213, b=x1415,  out=x12131415);
+    Or8Way(in[0]=ni[0], in[1]=ni[1], in[2]=ni[2], in[3]=ni[3],
+           in[4]=ni[4], in[5]=ni[5], in[6]=ni[6], in[7]=ni[7], out=zlo);
 
-    And(a=x0123,    b=x4567,     out=x0_7);
-    And(a=x891011,  b=x12131415, out=x8_15);
+    Or8Way(in[0]=ni[8], in[1]=ni[9], in[2]=ni[10], in[3]=ni[11],
+           in[4]=ni[12], in[5]=ni[13], in[6]=ni[14], in[7]=ni[15], out=zhi);
 
-    And(a=x0_7, b=x8_15, out=out);
+    Or(a=zlo, b=zhi, out=anyzero);
+    Not(in=anyzero, out=out);
 }
+
