@@ -11,14 +11,10 @@ CHIP And16Way {
 
     PARTS:
     Not16(in=in, out=ni);
-
-    Or8Way(in[0]=ni[0], in[1]=ni[1], in[2]=ni[2], in[3]=ni[3],
-           in[4]=ni[4], in[5]=ni[5], in[6]=ni[6], in[7]=ni[7], out=zlo);
-
-    Or8Way(in[0]=ni[8], in[1]=ni[9], in[2]=ni[10], in[3]=ni[11],
-           in[4]=ni[12], in[5]=ni[13], in[6]=ni[14], in[7]=ni[15], out=zhi);
-
-    Or(a=zlo, b=zhi, out=anyzero);
-    Not(in=anyzero, out=out);
+    Or8Way(in=ni[0..7],  out=z0);
+    Or8Way(in=ni[8..15], out=z1);
+    Or(a=z0, b=z1, out=any);
+    Not(in=any, out=out);
 }
+
 
